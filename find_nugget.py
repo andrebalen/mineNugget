@@ -26,8 +26,8 @@ for line in open(f, 'r'):
             email = re.findall('[a-zA-Z0-9]\S+@\S+[a-zA-Z]', soup.prettify())
             if email != None:
 	       print (email)
-            fone = re.compile('([0-9]{2} [0-9]{5}.[0-9]{4})', soup.prettify())
-#            fone = re.findall('(d{2}) d{4,5}-d{4}', soup.prettify())
+#            fone = re.compile('([0-9]{2} [0-9]{5}.[0-9]{4})', soup.prettify())
+            fone = re.findall('(d{2}) d{4,5}-d{4}', soup.prettify())
             if fone != None:
 	       print (fone)
             if line == None:
