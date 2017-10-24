@@ -18,7 +18,7 @@ f = sys.argv[1]
 for line in open(f, 'r'):
 #    if re.search(search_term, line):
 	new_url = url+line # TODO melhorando essa concatenacao, vide 
-		#https://pt.stackoverflow.com/questions/187589/qual-%C3%A9-a-melhor-forma-de-concatenar-strings-em-python
+#https://pt.stackoverflow.com/questions/187589/qual-%C3%A9-a-melhor-forma-de-concatenar-strings-em-python
 	if line != None: # se tem boi na linha consulta
 	    content = urllib2.urlopen(new_url).read()
 	    soup = BeautifulSoup(content)
@@ -26,8 +26,8 @@ for line in open(f, 'r'):
             email = re.findall('[a-zA-Z0-9]\S+@\S+[a-zA-Z]', soup.prettify())
             if email != None:
 	       print (email)
-#            fone = re.compile('([0-9]{2} [0-9]{5}.[0-9]{4})', soup.prettify())
-            fone = re.findall('(d{2}) d{4,5}-d{4}', soup.prettify())
+#           fone = re.compile('([0-9]{2} [0-9]{5}.[0-9]{4})', soup.prettify())
+            fone = re.findall('(\S+[0-9]\S+)\S+ +[0-9]\S+.\S+[0-9]', soup.prettify())
             if fone != None:
 	       print (fone)
             if line == None:
