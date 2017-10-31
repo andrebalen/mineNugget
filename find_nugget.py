@@ -9,8 +9,12 @@ import re
 # para usar itens do sistema
 import os
 import sys
+#import csv
 
 url = "https://www.receitaws.com.br/v1/cnpj/" #site de consulta a cnpjs da receita
+
+#if sys.argv[1] == None:
+#    print 'inclua uma lista de cnpjs para serem verificados'
 
 # abre o arquivo dos cnpjs a serem testados um a um passado como parametro
 f = sys.argv[1]
@@ -22,16 +26,23 @@ for line in open(f, 'r'):
 	if line != None: # se tem boi na linha consulta
 	    content = urllib2.urlopen(new_url).read()
 	    soup = BeautifulSoup(content)
-	    print '---------- cnpj: ' + line
+##	    print '---------- cnpj: ' + line
             email = re.findall('[a-zA-Z0-9]\S+@\S+[a-zA-Z]', soup.prettify())
-            if email != None:
-	       print (email)
+##          if email != None:
+##	       print (email)
 #           fone = re.compile('([0-9]{2} [0-9]{5}.[0-9]{4})', soup.prettify())
-            fone = re.findall('(\S+[0-9]\S+)\S+ +[0-9]\S+.\S+[0-9]', soup.prettify())
-            if fone != None:
-	       print (fone)
-            if line == None:
-            	print 'no matches found'
+            fone = re.findall('telefone', soup.prettify())
+##             if fone != None:
+##	       print (fone)
+#           capital = re.findall('[0-9]\S+.\S+[0-9]', soup.prettify())
+            capital = re.findall('capital_social', soup.prettify())
+##             if capital != None:
+##	       print (capital)
+#           print '---------------- resumo ----------------'
+#           print soup.prettify()[200:500]
+            print (str(line).strip() + ',' + str(email) + ',' + str(fone) + ',' + str(capital)) 
+        if line == None:
+            print 'no matches found'
 
 #f.close()
 
