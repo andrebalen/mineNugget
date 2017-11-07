@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Licença: GPLv3
 
@@ -33,8 +33,8 @@ for line in open(f, 'r'):
 ##	    print '---------- cnpj: ' + line
             email = re.findall('[a-zA-Z0-9]\S+@\S+[a-zA-Z]', soup.prettify())
 #            fone = re.findall('([0-9]{2}\S+ +[0-9]{5}\S+.\S+[0-9]{4}\S)', soup.prettify())
-            fone = re.findall('\d{2}..\d{4}.\d{4}', soup.prettify())
-#            fone = re.findall('(\+[1-9]{2}\d+)\+ \+[2-9][0-9]{3,4}\d+-\+[0-9]{4}\d', soup.prettify())
+#            fone = re.findall('\d{2}..\d{4}.\d{4}', soup.prettify())
+            fone = re.findall('(\+[1-9]{2}\d+)\+ \+[2-9][0-9]{3,4}\d+-\+[0-9]{4}\d', soup.prettify())
 #            capital = re.findall('[0-9]\S+.\S+[0-9]', soup.prettify())
             capital = re.findall('capital_social', soup.prettify())
 #           print '---------------- resumo ----------------'
