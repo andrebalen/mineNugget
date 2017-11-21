@@ -38,12 +38,10 @@ for line in open(f, 'r'):
             fone = re.findall('\d{2}..\d{4}.\d{3}.', soup.prettify())
 #            fone = re.findall('(\+[1-9]{2}\d+)\+ \+[2-9][0-9]{3,4}\d+-\+[0-9]{4}\d', soup.prettify())
             capital = re.findall('(.{1,5})(capital_social)(.{4,20})', soup.prettify())
-
-
-
+            nome = re.findall('(.{1,5})(nome)(.{4,40})', soup.prettify())
 #           print '---------------- resumo ----------------'
 #            print soup.prettify()[200:500]
-            print (str(line).strip() + ',' + str(email) + ',' + str(situacao) + ',' + str(fone) + ',' + str(capital))
+            print (str(line).strip() + ',' + str(nome) + ',' + str(email) + ',' + str(situacao) + ',' + str(fone) + ',' + str(capital))
             count = count+1
         if line == None:
             print 'no matches found'
